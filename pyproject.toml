@@ -1,14 +1,17 @@
 [tool.poetry]
 name = "aocontribs"
 version = "0.1.0"
-description = "Atomic orbital contributions"
+description = ""
 authors = ["Felipe S. S. Schneider <schneider.felipe.5@gmail.com>"]
-license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+cclib = "^1.7.1"
 
 [tool.poetry.dev-dependencies]
+pytest = "^5.2"
+mypy = "^0.942"
+black = {version = "^22.3.0", allow-prereleases = true}
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
