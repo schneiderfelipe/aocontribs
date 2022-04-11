@@ -5,7 +5,7 @@ import cclib
 __version__ = "0.1.0"
 
 
-def cli(filepath: str, atom: str):
+def main(filepath: str, atom: str):
     data = cclib.io.ccopen(filepath).parse()
 
     ihomo = data.homos[0]
@@ -25,7 +25,18 @@ def cli(filepath: str, atom: str):
             print(f"{orbital:10s} (#{i:2d}): " f"({coeff:+1.4f})² = {coeff**2:1.4f}")
 
 
-if __name__ == "__main__":
+def cli():
+    if len(sys.argv) != 3:
+        progname = sys.argv[0].split("/")[-1]
+        print(f"Usage: {progname} <filepath> <atom>")
+        print("\nExample:")
+        print(f"  {progname} test/water.out O1")
+        sys.exit(1)
+
     filepath = sys.argv[1]
     atom = sys.argv[2]
-    cli(filepath, atom)
+    main(filepath, atom)
+
+
+if __name__ == "__main__":
+    cli()
